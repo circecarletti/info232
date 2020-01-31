@@ -18,8 +18,8 @@ def answer_01(data):
         scaled_data [pandas.DataFrame]: Rescaled data except last column
 
     """
-    # TODO : standardize data
-    scaled_data = data
+    scaled_data = data.copy()
+    scaled_data.iloc[:,:-1] = (scaled_data.iloc[:,:-1] - scaled_data.iloc[:,:-1].mean()) / scaled_data.iloc[:,:-1].std()
     return scaled_data
 
 
